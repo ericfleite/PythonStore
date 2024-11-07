@@ -1,3 +1,9 @@
+class Usuario: # criação da classe Usuario
+  def __init__(self, n, l, s): # construtor da classe Usuario e o uso dos parâmetros n para o nome, l para o login e s para a senha
+    self.nome = n # atribuição do valor do parâmetro n para o atributo nome
+    self.login = l # atribuição do valor do parâmetro l para o atributo login
+    self.senha = s # atribuição do valor do parâmetro s para o atributo senha
+
 class Produto: # criação da classe Produto
   def __init__(self, c, d, v): # construtor da classe Produto e uso dos parâmetros c para o codigo, d para a descrição e v para valor
     self.codigo = c # atribuição do valor do parâmetro c para o atributo codigo
@@ -17,7 +23,7 @@ class Eletronico(Produto): # criação da classe Eletronico que herda atributos 
     print("Tensão: ", self.tensao, "\n") # impressão do valor do atributo tensao
 
 class Vestuario(Produto): # criação da classe Vestuario que herda atributos e métodos da superclasse Produto
-  def __init__(self, c, d, v, n, co, ta): # construtor da classe Vestuario e uso dos parâmetros c, d e v para os atributos herdados da classe pai Produto e n, co e ta para os atributos nome, cor e tamanho 
+  def __init__(self, c, d, v, n, co, ta): # construtor da classe Vestuario e uso dos parâmetros c, d e v para os atributos herdados da classe pai Produto e n, co e ta para os atributos nome, cor e tamanho
     self.nome = n # atribuição do parâmetro n para o atributo nome
     self.cor = co # atribuição do parâmetro co para o atributo cor
     self.tamanho = ta # atribuição do parâmetro ta para o atributo tamanho
@@ -56,7 +62,13 @@ class Chapeu(Vestuario): # criação da classe Chapeu que herda atributos e mét
     super().imprimir() # chamando o método da classe pai Vestuario imprimir()
     print("Tipo: ", self.tipo, "\n")  # impressão do valor do atributo tipo
 
-# instânciando os objetos
+# instânciando os objetos dos usuários
+usuario1 = Usuario("Fulano da Silva", "Fulano123", "FuSilva123%") # instânciando o objeto usuario1 com o nome Fulano da Silva, o login Fulano123 e a senha FuSilva123%
+usuario2 = Usuario("Ciclano dos Santos", "Ciclanosantos", "Cici123@") # instânciando o objeto usuario2 com o nome Ciclano dos Santos, o login Ciclanosantos e a senha Cici123@
+usuario3 = Usuario("Joca Silva", "JocaBr", "JocaS234$") # instânciando o objeto usuario3 com o nome Joca Silva, o login JocaBr e a senha JocaS234$
+usuarioAdmin = Usuario("Administrador", "Admin", "Admin") # instânciando o objeto usuarioAdmin com o nome Administrador, login Admin e a senha Admin
+
+# instânciando os objetos de produtos
 roupa1 = Roupa("123", "Camisa", 125.25, "Camisa Mamonas Assassinas", "Preta", "GG", "Algodão") # instânciando o objeto roupa1 com os parâmetros "123", "Camisa", 125.25, "Camisa Mamonas Assassinas", "Preta", "GG", "Algodão"
 roupa2 = Roupa("124", "Saia", 100.00, "Saia Festa Junina", "Rosa", "M", "Algodão") # instânciando o objeto roupa2 com os parâmetros "124", "Saia", 100.00, "Saia Festa Junina", "Rosa", "M", "Algodão"
 calcado1 = Calcado("133", "Sapato", 150.25, "Sapato de Couro", "Preto", "40", "Borracha", "Couro", "Algodão") # instânciando o objeto calcado1 com os parâmetros "133", "Sapato", 150.25, "Sapato de Couro", "Preto", "40", "Borracha", "Couro", "Algodão"
@@ -77,9 +89,9 @@ chapeu1.imprimir() # chamando os métodos imprimir do objeto chapeu1
 chapeu2.imprimir() # chamando os métodos imprimir do objeto chapeu2
 
 
-listaDeObjetos = (roupa1, roupa2, calcado1, calcado2, eletronico1, eletronico2, chapeu1, chapeu2) # tupla dos objetos (produtos) da loja
+listaDeObjetos = [roupa1, roupa2, calcado1, calcado2, eletronico1, eletronico2, chapeu1, chapeu2] # lista dos objetos (produtos) da loja
 listaDeCompra = [] # lista de compras do cliente
-executando = True # variável de código em execução
+listaDeUsuarios = [usuario1, usuario2, usuario3] # lista de usuários do sistema
 
 def AdicionarAoCarrinho(): # função para adicionar um produto ao carrinho de compras do cliente
   carrinhoDeCompraAdicionar = input("Coloque o código do produto:") # imprime no console "Coloque o código do produto:" e requisita o código do produto
@@ -96,11 +108,15 @@ def RetirarDoCarrinho(): # função para retirar um produto do carrinho de compr
   for i, lista in enumerate(listaDeCompra): # loop para passar por toda lista de compra e enumerar as posições dos produtos
     print("Posição: ", i+1) # imprime a posição do produto
     lista.imprimir() # imprime as informações do produto
-  carrinhoDeCompraRetirar = int(input("Digite a posição do produto na sua lista para retirar:")) # imprime no console "Digite a posição do produto na sua lista para retirar:" e requisita a posição do produto que ele deseja retirar
-# Ainda necessário aplicar uma condicional para caso a posição seja inválida
-  print("Produto retirado:") # mensagem de produto retirado
-  print(listaDeCompra[carrinhoDeCompraRetirar - 1].imprimir()) # imprime no console o produto a ser retirado do carrinho de compras
-  listaDeCompra.pop(carrinhoDeCompraRetirar - 1) # retira o produto do carrinho de compras
+  carrinhoDeCompraRetirar = int(input("Digite a posição do produto na sua lista para retirar:\n")) # imprime no console "Digite a posição do produto na sua lista para retirar:" e requisita a posição do produto que ele deseja retirar
+  if 1 <= carrinhoDeCompraRetirar <= len(listaDeCompra):
+    print("Produto retirado:\n") # mensagem de produto retirado
+    print(listaDeCompra[carrinhoDeCompraRetirar - 1].imprimir()) # imprime no console o produto a ser retirado do carrinho de compras
+    listaDeCompra.pop(carrinhoDeCompraRetirar - 1) # retira o produto do carrinho de compras
+    return
+  else:
+    print("Posição inválida.\n")
+    return
 
 def CarrinhoAgora(): # função para verificar o estado do carrinho
   if not listaDeCompra: # verifica se a variável listaDeCompra está vazia
@@ -126,17 +142,40 @@ def FinalizarCompra(): # função para finalizar a compra
   print("Realizar Pagamento. \n") # imprime no console "Realizar Pagamento."
   listaDeCompra.clear() # limpa a lista de compras
 
-while executando:
-  requisicao = input("Digite 'a' para adicionar um produto \nDigite 'r' para remover um produto \nDigite 'f' para finalizar a compra \nDigite 'v' para verificar o carrinho \nDigite 's' para sair \n")
-  if requisicao == "a":
-    AdicionarAoCarrinho()
-  elif requisicao == "r":
-    RetirarDoCarrinho()
-  elif requisicao == "f":
-    FinalizarCompra()
-  elif requisicao == "v":
-    CarrinhoAgora()
-  elif requisicao == "s":
-    executando = False
-  else:
-    print("Comando inválido.\n")
+def autenticarUsuario():
+    login = input("Digite o login: ")
+    senha = input("Digite a senha: ")
+    for usuario in listaDeUsuarios:
+        if usuario.login == login and usuario.senha == senha:
+            print("Olá, ", usuario.nome)
+            return True
+    print("Login ou senha incorretos.\n")
+    return False
+
+def Autentificado():
+  global autentificado
+  autentificado = False
+  while not autentificado:
+    autentificado = autenticarUsuario()
+  Execucao()
+
+def Execucao():
+  executando = True # variável de código em execução
+  while executando:
+    requisicao = input("Digite 'a' para adicionar um produto \nDigite 'r' para remover um produto \nDigite 'f' para finalizar a compra \nDigite 'v' para verificar o carrinho \nDigite 's' para sair \n")
+    if requisicao == "a":
+      AdicionarAoCarrinho()
+    elif requisicao == "r":
+      RetirarDoCarrinho()
+    elif requisicao == "f":
+      FinalizarCompra()
+    elif requisicao == "v":
+      CarrinhoAgora()
+    elif requisicao == "s":
+      executando = False
+      autentificado = False
+      Autentificado()
+    else:
+      print("Comando inválido.\n")
+
+Autentificado()
