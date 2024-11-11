@@ -4,13 +4,22 @@
     <img src="./image/pythonstore.jpg" alt="pythonstore" width="500px">
 </p>
 
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+
 ## Descrição
 
-<p>
-  Nesse projeto será apresentado uma loja com diversos produtos pré-cadastrados. Haverá uma atentificação antes de começar as compras. O programa também mostrará o carrinho de compras e o valor total do carrinho. Você consiguirá remover produtos do carrinho de compras. E ao finalizar a compra haverá o calculo total do valor dos produtos dentro do carrinho e após a mensagem realizar pagamento a carrinho será esvaziado para mais compras a serem realizadas.
+<p align="justify">
+  Uma aplicação de gerenciamento de produtos e usuários em um ambiente de loja virtual. Ele usa classes para representar usuários, produtos e diferentes categorias de produtos, como eletrônicos :iphone:, vestuário :coat:, calçados :boot: e chapéus :tophat:, com atributos específicos para cada categoria. Possuí métodos de autenticação de usuário e permissões para o administrador adicionar e remover produtos e usuários. Funções para adicionar e remover produtos ao carrinho, verificar o carrinho atual, e finalizar a compra com um resumo de valores. O administrador tem um menu de opções para manipulação direta do catálogo de produtos e lista de usuários. O administrado tem a possibilidade de trocar a senha dele. E é possível o usuário fazer um cadastro na loja para realizar as funções de compra.
 </p>
 
 ## :rocket: Status do Projeto
-<p>
+<p align="center">
   Em construção...
 </p>
+
+## Mapa do Projeto
+
+```.
+├───image       //pasta com imagens do Readme
+└───src         //pasta pasta com os módulos utilizados no código
+```
