@@ -37,11 +37,17 @@ def AdicionarEletronico(): # função para adicionar um novo produto eletrônico
         print("Este código já está sendo utilizado.") # caso o código existe no sistema imprime "Este código já está sendo utilizado."
         return # retorna vazio a função
     descricao = input("Digite a descrição do produto: ") # pede ao usuário digitar a descrição do produto eletrônico
-    valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto eletrônico
-    tensao = input("Digite a tensão do produto: ") # pede ao usuário digitar a tensão do produto eletrônico
-    novoEletronico = classes.Eletronico(codigo, descricao, valor, tensao)  # instância o objeto novoEletronico
-    obj.listaDeObjetos.append(novoEletronico) # adiciona o objeto novoEletronico na lista de produtos
-    print("Produto eletrônico adicionado com sucesso.\n") # imprime no console "Produto eletrônico adicionado com sucesso."
+    try:
+        valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto eletrônico
+    except ValueError:
+       print("Erro: Você digitou o valor do produto errado!\n")
+    else:
+        tensao = input("Digite a tensão do produto: ") # pede ao usuário digitar a tensão do produto eletrônico
+        novoEletronico = classes.Eletronico(codigo, descricao, valor, tensao)  # instância o objeto novoEletronico
+        obj.listaDeObjetos.append(novoEletronico) # adiciona o objeto novoEletronico na lista de produtos
+        print("Produto eletrônico adicionado com sucesso.\n") # imprime no console "Produto eletrônico adicionado com sucesso."
+    finally:
+       return
 
 def AdicionarCalcado(): # função para adicionar um novo calçado
     codigo = input("Digite o código do produto: ") # pede para o usuário digitar o código do novo produto calçado
@@ -50,16 +56,22 @@ def AdicionarCalcado(): # função para adicionar um novo calçado
         print("Este código já está sendo utilizado.") # caso o código existe no sistema imprime "Este código já está sendo utilizado."
         return # retorna vazio a função
     descricao = input("Digite a descrição do produto: ") # pede ao usuário digitar a descrição do produto calçado
-    valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto calçado
-    nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do produto calçado
-    cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do produto calçado
-    tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do produto calçado
-    materialSola = input("Digite o material da sola: ") # pede ao usuário digitar o material da sola do produto calçado
-    materialParteSuperior = input("Digite o material da parte superior: ") # pede ao usuário digitar o material da parte superior do produto calçado
-    materialInterno = input("Digite o material interno: ") # pede ao usuário digitar o material interno do produto calçado
-    novoCalcado = classes.Calcado(codigo, descricao, valor, nome, cor, tamanho, materialSola, materialParteSuperior, materialInterno) # intancia o objeto novoCalcado
-    obj.listaDeObjetos.append(novoCalcado) # adiciona o objeto novoCalcado na lista de objetos (produto)
-    print("Calçado adicionado com sucesso.\n") # imprime no console "Calçado adicionado com sucesso."
+    try:
+        valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto calçado
+    except ValueError:
+       print("Erro: Você digitou o valor do produto errado!\n")
+    else:
+        nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do produto calçado
+        cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do produto calçado
+        tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do produto calçado
+        materialSola = input("Digite o material da sola: ") # pede ao usuário digitar o material da sola do produto calçado
+        materialParteSuperior = input("Digite o material da parte superior: ") # pede ao usuário digitar o material da parte superior do produto calçado
+        materialInterno = input("Digite o material interno: ") # pede ao usuário digitar o material interno do produto calçado
+        novoCalcado = classes.Calcado(codigo, descricao, valor, nome, cor, tamanho, materialSola, materialParteSuperior, materialInterno) # intancia o objeto novoCalcado
+        obj.listaDeObjetos.append(novoCalcado) # adiciona o objeto novoCalcado na lista de objetos (produto)
+        print("Calçado adicionado com sucesso.\n") # imprime no console "Calçado adicionado com sucesso."
+    finally:
+       return
 
 def AdicionarChapeu(): # função para adicionar um novo chapéu
     codigo = input("Digite o código do produto: ") # pede para o usuário digitar o código do novo produto chapéu
@@ -68,14 +80,20 @@ def AdicionarChapeu(): # função para adicionar um novo chapéu
         print("Este código já está sendo utilizado.") # caso o código existe no sistema imprime "Este código já está sendo utilizado."
         return # retorna vazio a função
     descricao = input("Digite a descrição do produto: ") # pede ao usuário digitar a descrição do produto chapéu
-    valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto chapéu
-    nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do produto chapéu
-    cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do produto chapéu
-    tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do produto chapéu
-    tipo = input("Digite o tipo do chapéu: ") # pede ao usuário digitar o tipo do chapéu
-    novoChapeu = classes.Chapeu(codigo, descricao, valor, nome, cor, tamanho, tipo) # instância o objeto novoChapeu
-    obj.listaDeObjetos.append(novoChapeu) # adiciona o objeto novoChapeu na lista de produtos
-    print("Chapéu adicionado com sucesso.\n") # imprime no console "Chapéu adicionado com sucesso."
+    try:
+        valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto chapéu
+    except ValueError:
+       print("Erro: Você digitou o valor do produto errado!\n")
+    else:
+        nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do produto chapéu
+        cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do produto chapéu
+        tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do produto chapéu
+        tipo = input("Digite o tipo do chapéu: ") # pede ao usuário digitar o tipo do chapéu
+        novoChapeu = classes.Chapeu(codigo, descricao, valor, nome, cor, tamanho, tipo) # instância o objeto novoChapeu
+        obj.listaDeObjetos.append(novoChapeu) # adiciona o objeto novoChapeu na lista de produtos
+        print("Chapéu adicionado com sucesso.\n") # imprime no console "Chapéu adicionado com sucesso."
+    finally:
+       return
 
 def AdicionarRoupa(): # função para adicionar uma nova roupa
     codigo = input("Digite o código do produto: ") # pede para o usuário digitar o código do novo produto chapéu
@@ -84,14 +102,20 @@ def AdicionarRoupa(): # função para adicionar uma nova roupa
         print("Este código já está sendo utilizado.") # caso o código existe no sistema imprime "Este código já está sendo utilizado."
         return # retorna vazio a função
     descricao = input("Digite a descrição do produto: ") # pede ao usuário digitar a descrição do novo produto roupa
-    valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto roupa
-    nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do novo produto roupa
-    cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do novo produto roupa
-    tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do novo produto roupa
-    tecido = input("Digite o tipo de tecido: ") # pede ao usuário digitar o tecido do novo produto roupa
-    novaRoupa = classes.Roupa(codigo, descricao, valor, nome, cor, tamanho, tecido) # instância o objeto novaRoupa
-    obj.listaDeObjetos.append(novaRoupa) # adiciona o objeto novaRoupa na lista de produtos
-    print("Roupa adicionada com sucesso.\n") # imprime no console "Roupa adicionada com sucesso."
+    try:
+        valor = float(input("Digite o valor do produto: ")) # pede ao usuário digitar o valor do produto roupa
+    except ValueError:
+       print("Erro: Você digitou o valor do produto errado!\n")
+    else:
+        nome = input("Digite o nome do produto: ") # pede ao usuário digitar o nome do novo produto roupa
+        cor = input("Digite a cor do produto: ") # pede ao usuário digitar a cor do novo produto roupa
+        tamanho = input("Digite o tamanho do produto: ") # pede ao usuário digitar o tamanho do novo produto roupa
+        tecido = input("Digite o tipo de tecido: ") # pede ao usuário digitar o tecido do novo produto roupa
+        novaRoupa = classes.Roupa(codigo, descricao, valor, nome, cor, tamanho, tecido) # instância o objeto novaRoupa
+        obj.listaDeObjetos.append(novaRoupa) # adiciona o objeto novaRoupa na lista de produtos
+        print("Roupa adicionada com sucesso.\n") # imprime no console "Roupa adicionada com sucesso."
+    finally:
+       return
 
 def RemoverProduto(): # função para remover um produto da lista de produtos
     codigo = input("Digite o código do produto que deseja remover: ") # pede ao usuário digitar o código do produto que será retirado
