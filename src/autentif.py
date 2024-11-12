@@ -5,7 +5,7 @@ from . import obj
 def Autentificado(): # função para autentificar o usuário
   primeiraAut = True # atribui true para a variável primeiraAut
   while primeiraAut: # enquanto for true a variável primeiraAut esse loop será executado
-    primRequisicao = input("Digite 'l' para logar ou 'c' para cadastrar uma nova conta") # pede para o usuário escolher "l" para logar e "c" para cadastrar uma nova conta
+    primRequisicao = input("Digite 'l' para logar, 'c' para cadastrar uma nova conta ou 'f' para finalizar a sessão\n") # pede para o usuário escolher "l" para logar e "c" para cadastrar uma nova conta
     if primRequisicao.lower() == "c": # transforma o valor da variável primRequisicao em minusculo e compara com a string "c"
       func.AdicionarUsuario() # executa a função AdicionarUsuario
     elif primRequisicao.lower() == "l": # transforma o valor da variável primRequisicao em minusculo e compara com a string "l"
@@ -14,6 +14,8 @@ def Autentificado(): # função para autentificar o usuário
       while not autentificado: # enquanto for false a variável autentificado esse loop será executado
         autentificado = AutenticarUsuario() # atribui o valor retornado da função AutenticarUsuario
       ex.Execucao() # executa a função Execucao
+    elif primRequisicao.lower() == "f":
+      exit()
     else: # se não for atendido as condições executa a linha abaixo
       print("Comando inválido.\n") # imprime no console "Comando inválido."
 

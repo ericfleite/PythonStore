@@ -15,15 +15,21 @@ def RetirarDoCarrinho(): # função para retirar um produto do carrinho de compr
   for i, lista in enumerate(obj.listaDeCompra): # loop para passar por toda lista de compra e enumerar as posições dos produtos
     print("Posição: ", i+1) # imprime a posição do produto
     lista.imprimir() # imprime as informações do produto
-  carrinhoDeCompraRetirar = int(input("Digite a posição do produto na sua lista para retirar:\n")) # imprime no console "Digite a posição do produto na sua lista para retirar:" e requisita a posição do produto que ele deseja retirar
-  if 1 <= carrinhoDeCompraRetirar <= len(obj.listaDeCompra):
-    print("Produto retirado:\n") # mensagem de produto retirado
-    print(obj.listaDeCompra[carrinhoDeCompraRetirar - 1].imprimir()) # imprime no console o produto a ser retirado do carrinho de compras
-    obj.listaDeCompra.pop(carrinhoDeCompraRetirar - 1) # retira o produto do carrinho de compras
-    return # retorna vazio a função
-  else: # caso a condicional não for atendida segue para a linha abaixo
-    print("Posição inválida.\n") # imprime "Posição inválida" se não houver atendido a condicional if
-    return # retorna vazio a função
+  try:
+    carrinhoDeCompraRetirar = int(input("Digite a posição do produto na sua lista para retirar:\n")) # imprime no console "Digite a posição do produto na sua lista para retirar:" e requisita a posição do produto que ele deseja retirar
+  except ValueError:
+    print("Erro: Valor digitado precisa ser um número inteiro.\n")
+  else:
+    if 1 <= carrinhoDeCompraRetirar <= len(obj.listaDeCompra):
+      print("Produto retirado:\n") # mensagem de produto retirado
+      print(obj.listaDeCompra[carrinhoDeCompraRetirar - 1].imprimir()) # imprime no console o produto a ser retirado do carrinho de compras
+      obj.listaDeCompra.pop(carrinhoDeCompraRetirar - 1) # retira o produto do carrinho de compras
+      return # retorna vazio a função
+    else: # caso a condicional não for atendida segue para a linha abaixo
+      print("Posição inválida.\n") # imprime "Posição inválida" se não houver atendido a condicional if
+      return # retorna vazio a função
+  finally:
+    return
 
 def CarrinhoAgora(): # função para verificar o estado do carrinho
   if not obj.listaDeCompra: # verifica se a variável listaDeCompra está vazia
