@@ -12,6 +12,19 @@
   Uma aplicação de gerenciamento de produtos e usuários em um ambiente de loja virtual. Ele usa classes para representar usuários, produtos e diferentes categorias de produtos, como eletrônicos :iphone:, vestuário :coat:, calçados :boot: e chapéus :tophat:, com atributos específicos para cada categoria. Possuí métodos de autenticação de usuário e permissões para o administrador adicionar e remover produtos e usuários. Funções para adicionar e remover produtos ao carrinho, verificar o carrinho atual, e finalizar a compra com um resumo de valores. O administrador tem um menu de opções para manipulação direta do catálogo de produtos e lista de usuários. O administrado tem a possibilidade de trocar a senha dele. E é possível o usuário fazer um cadastro na loja para realizar as funções de compra.
 </p>
 
+## index.py
+
+```python
+from src import imprimirfunc
+from src import autentif
+
+imprimirfunc.ImprimirTodosProdutos() # executa a função ImprimirTodosProdutos
+autentif.Autentificado() # executa a função Autentificado
+```
+<p align="justify">
+    Irá chamar a função ImprimirTodosProdutos() do módulo imprimirfunc. E após as impressões dos produtos irá chamar a função Autentificado() do módulo autentif para autentificar o usuário.
+</p>
+
 ## :rocket: Status do Projeto
 <p align="center">
   Em construção...
