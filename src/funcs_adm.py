@@ -3,12 +3,21 @@ from . import obj
 
 def AdicionarUsuario(): # função para adicionar usuário
     nome = input("Digite o nome do usuário: ") # pede para digitar o nome do usuário que irá ser adicionado
+    if len(nome) < 1:
+        print("O nome não pode ficar vazio.")
+        return
     login = input("Digite o login do usuário: ") # pede para digitar o login do usuário que irá ser adicionado
+    if len(login) < 5:
+        print("O login precisa ter pelo menos 5 caracteres.")
+        return
     for usuario in obj.listaDeUsuarios: # loop para verificar toda a lista de usuários
       if usuario.login == login: # se houver registro de login que já existe
         print("Este login já está sendo utilizado.") # imprime "Este login já está sendo utilizado."
         return # retorna vazio a função
     senha = input("Digite a senha do usuário: ") # pede para digitar a senha do novo usuário
+    if len(senha) < 6:
+        print("A senha precisa ter pelo menos 6 caracteres.")
+        return
     novoUsuario = classes.Usuario(nome, login, senha) # intância o objeto novo_usuário
     obj.listaDeUsuarios.append(novoUsuario) # adiciona o objeto novo_usuario na lista de usuários
     print("Usuário adicionado com sucesso.\n") # imprime no console "Usuário adicionado com sucesso."
